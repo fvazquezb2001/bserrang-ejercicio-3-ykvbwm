@@ -6,3 +6,11 @@ let buttonShowList = document.getElementById("showList");
 buttonShowList.addEventListener("click", getUsers);
 
 function getUsers() {}
+
+
+
+fetch('users.json')
+  .then(response=>response.json())
+  .then(data => {
+    console.log(data);
+    let array=data});
