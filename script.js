@@ -3,14 +3,15 @@
 // Teniendo la lista ya filtrada, la recorreréis con el método "forEach" para mostrar por consola el nombre de cada usuario.
 
 let buttonShowList = document.getElementById("showList");
-buttonShowList.addEventListener("click", getUsers);
+buttonShowList.addEventListener("click", getUsers, false);
 
-function getUsers() {}
+function getUsers() {
+  fetch("users.json")
+    .then(response => response.json())
+    .then(data => filtro(data));
+}
 
-
-
-fetch('users.json')
-  .then(response=>response.json())
-  .then(data => {
-    console.log(data);
-    let array=data});
+function filtro(users) {
+  const filteredData = users.filter(user => user.money > 500);
+  filteredData.forEach(filteredData => console.log(filteredData.name));
+}
